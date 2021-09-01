@@ -11,6 +11,7 @@
 - [ ] Ajouter l'event pour acheter une tourelle et la placer
 - [ ] Tir de la tourelle (dans une zone)
 - [ ] Collision tir-monstre => event
+- [ ] Coin pour les infos du joueurs (PV - PO)
 
 ## Objets
 
