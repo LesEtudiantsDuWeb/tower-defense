@@ -6,7 +6,7 @@
 xmlns="http://www.w3.org/2000/svg"
 xmlns:link="http://www.w3.org/1999/xlink">\n\n<desc>Généré par Mocodo 2.3.7 le Wed, 01 Sep 2021 03:33:10</desc>
 
-<rect id="frame" x="0" y="0" width="492" height="364" fill="#f7f7f7" stroke="none" stroke-width="0"/>
+<rect id="frame" x="0" y="0" width="492" height="364" fill="transparent" stroke="none" stroke-width="0"/>
 
 <!-- Association Lancer -->
 <line x1="251" y1="304" x2="343" y2="304" stroke="#e08214" stroke-width="2"/>
