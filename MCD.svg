@@ -1,0 +1,154 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="492" height="364" view_box="0 0 492 364"
+xmlns="http://www.w3.org/2000/svg"
+xmlns:link="http://www.w3.org/1999/xlink">\n\n<desc>Généré par Mocodo 2.3.7 le Wed, 01 Sep 2021 03:33:10</desc>
+
+<rect id="frame" x="0" y="0" width="492" height="364" fill="#f7f7f7" stroke="none" stroke-width="0"/>
+
+<!-- Association Lancer -->
+<line x1="251" y1="304" x2="343" y2="304" stroke="#e08214" stroke-width="2"/>
+<text x="280" y="321.0" fill="#542788" font-family="Verdana" font-size="12">1,N</text>
+<line x1="448" y1="152" x2="343" y2="304" stroke="#e08214" stroke-width="2"/>
+<text x="418.714783078" y="211" fill="#542788" font-family="Verdana" font-size="12">0,N</text>
+<g id="association-Lancer">
+	<path d="M 357 279 a 14 14 90 0 1 14 14 V 304 h -56 V 293 a 14 14 90 0 1 14 -14" fill="#fdb863" stroke="#fdb863" stroke-width="0"/>
+	<path d="M 371 304.0 v 11 a 14 14 90 0 1 -14 14 H 329 a 14 14 90 0 1 -14 -14 V 304.0 H 56" fill="#fee0b6" stroke="#fee0b6" stroke-width="0"/>
+	<rect x="315" y="279" width="56" height="50" fill="none" rx="14" stroke="#e08214" stroke-width="2"/>
+	<line x1="315" y1="304" x2="371" y2="304" stroke="#e08214" stroke-width="1"/>
+	<text x="322" y="296.7" fill="#000000" font-family="Verdana" font-size="12">Lancer</text>
+</g>
+
+<!-- Association Contenir -->
+<line x1="52" y1="152" x2="160" y2="152" stroke="#e08214" stroke-width="2"/>
+<text x="100" y="169.0" fill="#542788" font-family="Verdana" font-size="12">0,N</text>
+<line x1="251" y1="152" x2="160" y2="152" stroke="#e08214" stroke-width="2"/>
+<text x="203" y="169.0" fill="#542788" font-family="Verdana" font-size="12">0,1</text>
+<g id="association-Contenir">
+	<path d="M 179 127 a 14 14 90 0 1 14 14 V 152 h -66 V 141 a 14 14 90 0 1 14 -14" fill="#fdb863" stroke="#fdb863" stroke-width="0"/>
+	<path d="M 193 152.0 v 11 a 14 14 90 0 1 -14 14 H 141 a 14 14 90 0 1 -14 -14 V 152.0 H 66" fill="#fee0b6" stroke="#fee0b6" stroke-width="0"/>
+	<rect x="127" y="127" width="66" height="50" fill="none" rx="14" stroke="#e08214" stroke-width="2"/>
+	<line x1="127" y1="152" x2="193" y2="152" stroke="#e08214" stroke-width="1"/>
+	<text x="134" y="144.7" fill="#000000" font-family="Verdana" font-size="12">Contenir</text>
+</g>
+
+<!-- Association Composer -->
+<line x1="448" y1="152" x2="343" y2="152" stroke="#e08214" stroke-width="2"/>
+<text x="386" y="144.0" fill="#542788" font-family="Verdana" font-size="12">0,N</text>
+<line x1="251" y1="152" x2="343" y2="152" stroke="#e08214" stroke-width="2"/>
+<text x="278" y="169.0" fill="#542788" font-family="Verdana" font-size="12">0,1</text>
+<g id="association-Composer">
+	<path d="M 367 127 a 14 14 90 0 1 14 14 V 152 h -76 V 141 a 14 14 90 0 1 14 -14" fill="#fdb863" stroke="#fdb863" stroke-width="0"/>
+	<path d="M 381 152.0 v 11 a 14 14 90 0 1 -14 14 H 319 a 14 14 90 0 1 -14 -14 V 152.0 H 76" fill="#fee0b6" stroke="#fee0b6" stroke-width="0"/>
+	<rect x="305" y="127" width="76" height="50" fill="none" rx="14" stroke="#e08214" stroke-width="2"/>
+	<line x1="305" y1="152" x2="381" y2="152" stroke="#e08214" stroke-width="1"/>
+	<text x="312" y="144.7" fill="#000000" font-family="Verdana" font-size="12">Composer</text>
+</g>
+
+<!-- Association Posseder -->
+<line x1="251" y1="304" x2="160" y2="304" stroke="#e08214" stroke-width="2"/>
+<text x="200" y="321.0" fill="#542788" font-family="Verdana" font-size="12">1,N</text>
+<line x1="52" y1="304" x2="160" y2="304" stroke="#e08214" stroke-width="2"/>
+<text x="93" y="321.0" fill="#542788" font-family="Verdana" font-size="12">0,N</text>
+<g id="association-Posseder">
+	<path d="M 181 279 a 14 14 90 0 1 14 14 V 304 h -70 V 293 a 14 14 90 0 1 14 -14" fill="#fdb863" stroke="#fdb863" stroke-width="0"/>
+	<path d="M 195 304.0 v 11 a 14 14 90 0 1 -14 14 H 139 a 14 14 90 0 1 -14 -14 V 304.0 H 70" fill="#fee0b6" stroke="#fee0b6" stroke-width="0"/>
+	<rect x="125" y="279" width="70" height="50" fill="none" rx="14" stroke="#e08214" stroke-width="2"/>
+	<line x1="125" y1="304" x2="195" y2="304" stroke="#e08214" stroke-width="1"/>
+	<text x="132" y="296.7" fill="#000000" font-family="Verdana" font-size="12">Posseder</text>
+</g>
+
+<!-- Entity CASE -->
+<g id="entity-CASE">
+	<g id="frame-CASE">
+		<rect x="229" y="118" width="44" height="25" fill="#b2abd2" stroke="#b2abd2" stroke-width="0"/>
+		<rect x="229" y="143.0" width="44" height="43" fill="#d8daeb" stroke="#d8daeb" stroke-width="0"/>
+		<rect x="229" y="118" width="44" height="68" fill="none" stroke="#8073ac" stroke-width="2"/>
+		<line x1="229" y1="143" x2="273" y2="143" stroke="#8073ac" stroke-width="1"/>
+	</g>
+	<text x="234" y="135.7" fill="#000000" font-family="Verdana" font-size="12">CASE</text>
+	<text x="234" y="160.8" fill="#000000" font-family="Verdana" font-size="12">id</text>
+	<line x1="234" y1="163" x2="246" y2="163" stroke="#000000" stroke-width="1"/>
+	<text x="234" y="177.8" fill="#000000" font-family="Verdana" font-size="12">type</text>
+</g>
+
+<!-- Entity MAP -->
+<g id="entity-MAP">
+	<g id="frame-MAP">
+		<rect x="413" y="110" width="70" height="25" fill="#b2abd2" stroke="#b2abd2" stroke-width="0"/>
+		<rect x="413" y="135.0" width="70" height="59" fill="#d8daeb" stroke="#d8daeb" stroke-width="0"/>
+		<rect x="413" y="110" width="70" height="84" fill="none" stroke="#8073ac" stroke-width="2"/>
+		<line x1="413" y1="135" x2="483" y2="135" stroke="#8073ac" stroke-width="1"/>
+	</g>
+	<text x="434" y="127.7" fill="#000000" font-family="Verdana" font-size="12">MAP</text>
+	<text x="418" y="152.8" fill="#000000" font-family="Verdana" font-size="12">id</text>
+	<line x1="418" y1="155" x2="430" y2="155" stroke="#000000" stroke-width="1"/>
+	<text x="418" y="169.8" fill="#000000" font-family="Verdana" font-size="12">nbCasesX</text>
+	<text x="418" y="186.8" fill="#000000" font-family="Verdana" font-size="12">nbCasesY</text>
+</g>
+
+<!-- Entity MONSTER -->
+<g id="entity-MONSTER">
+	<g id="frame-MONSTER">
+		<rect x="16" y="253" width="72" height="25" fill="#b2abd2" stroke="#b2abd2" stroke-width="0"/>
+		<rect x="16" y="278.0" width="72" height="77" fill="#d8daeb" stroke="#d8daeb" stroke-width="0"/>
+		<rect x="16" y="253" width="72" height="102" fill="none" stroke="#8073ac" stroke-width="2"/>
+		<line x1="16" y1="278" x2="88" y2="278" stroke="#8073ac" stroke-width="1"/>
+	</g>
+	<text x="21" y="270.7" fill="#000000" font-family="Verdana" font-size="12">MONSTER</text>
+	<text x="21" y="295.7" fill="#000000" font-family="Verdana" font-size="12">id</text>
+	<line x1="21" y1="298" x2="33" y2="298" stroke="#000000" stroke-width="1"/>
+	<text x="21" y="312.8" fill="#000000" font-family="Verdana" font-size="12">name</text>
+	<text x="21" y="329.8" fill="#000000" font-family="Verdana" font-size="12">speed</text>
+	<text x="21" y="346.8" fill="#000000" font-family="Verdana" font-size="12">life</text>
+</g>
+
+<!-- Entity WAVE -->
+<g id="entity-WAVE">
+	<g id="frame-WAVE">
+		<rect x="227" y="279" width="48" height="25" fill="#b2abd2" stroke="#b2abd2" stroke-width="0"/>
+		<rect x="227" y="304.0" width="48" height="25" fill="#d8daeb" stroke="#d8daeb" stroke-width="0"/>
+		<rect x="227" y="279" width="48" height="50" fill="none" stroke="#8073ac" stroke-width="2"/>
+		<line x1="227" y1="304" x2="275" y2="304" stroke="#8073ac" stroke-width="1"/>
+	</g>
+	<text x="232" y="296.7" fill="#000000" font-family="Verdana" font-size="12">WAVE</text>
+	<text x="232" y="321.8" fill="#000000" font-family="Verdana" font-size="12">num</text>
+	<line x1="232" y1="324" x2="260" y2="324" stroke="#000000" stroke-width="1"/>
+</g>
+
+<!-- Entity PLAYER -->
+<g id="entity-PLAYER">
+	<g id="frame-PLAYER">
+		<rect x="223" y="9" width="56" height="25" fill="#b2abd2" stroke="#b2abd2" stroke-width="0"/>
+		<rect x="223" y="34.0" width="56" height="59" fill="#d8daeb" stroke="#d8daeb" stroke-width="0"/>
+		<rect x="223" y="9" width="56" height="84" fill="none" stroke="#8073ac" stroke-width="2"/>
+		<line x1="223" y1="34" x2="279" y2="34" stroke="#8073ac" stroke-width="1"/>
+	</g>
+	<text x="228" y="26.7" fill="#000000" font-family="Verdana" font-size="12">PLAYER</text>
+	<text x="228" y="51.8" fill="#000000" font-family="Verdana" font-size="12">id</text>
+	<line x1="228" y1="54" x2="240" y2="54" stroke="#000000" stroke-width="1"/>
+	<text x="228" y="68.8" fill="#000000" font-family="Verdana" font-size="12">life</text>
+	<text x="228" y="85.8" fill="#000000" font-family="Verdana" font-size="12">gold</text>
+</g>
+
+<!-- Entity TOWER -->
+<g id="entity-TOWER">
+	<g id="frame-TOWER">
+		<rect x="9" y="76" width="86" height="25" fill="#b2abd2" stroke="#b2abd2" stroke-width="0"/>
+		<rect x="9" y="101.0" width="86" height="127" fill="#d8daeb" stroke="#d8daeb" stroke-width="0"/>
+		<rect x="9" y="76" width="86" height="152" fill="none" stroke="#8073ac" stroke-width="2"/>
+		<line x1="9" y1="101" x2="95" y2="101" stroke="#8073ac" stroke-width="1"/>
+	</g>
+	<text x="29" y="93.7" fill="#000000" font-family="Verdana" font-size="12">TOWER</text>
+	<text x="14" y="118.7" fill="#000000" font-family="Verdana" font-size="12">id</text>
+	<line x1="14" y1="121" x2="26" y2="121" stroke="#000000" stroke-width="1"/>
+	<text x="14" y="135.7" fill="#000000" font-family="Verdana" font-size="12">name</text>
+	<text x="14" y="152.8" fill="#000000" font-family="Verdana" font-size="12">type</text>
+	<text x="14" y="169.8" fill="#000000" font-family="Verdana" font-size="12">cost</text>
+	<text x="14" y="186.8" fill="#000000" font-family="Verdana" font-size="12">range</text>
+	<text x="14" y="203.8" fill="#000000" font-family="Verdana" font-size="12">attackSpeed</text>
+	<text x="14" y="220.8" fill="#000000" font-family="Verdana" font-size="12">damage</text>
+</g>
+</svg>
