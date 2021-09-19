@@ -1,0 +1,17 @@
+:root {
+    --g-color-1: blue;
+    --g-color-2: yellow;
+    --g-color-3: red;
+}
+
+.iconColor1 {
+    --color-1: var(--g-color-1);
+    --color-2: var(--g-color-2);
+    --color-3: var(--g-color-1);
+}
+
+*:hover > .iconColor1 {
+    --color-1: var(--g-color-2);
+    --color-2: var(--g-color-1);
+    --color-3: var(--g-color-2);
+}

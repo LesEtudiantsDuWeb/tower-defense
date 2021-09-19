@@ -1,0 +1,13 @@
+{
+    "name": "tower-defense",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "",
+    "license": "MIT",
+    "scripts": {
+        "start": "sass --no-source-map --watch styles/scss/index.scss:styles/css/style.css"
+    },
+    "dependencies": {
+        "sass": "*"
+    }
+}
