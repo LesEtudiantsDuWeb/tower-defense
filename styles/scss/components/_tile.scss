@@ -1,0 +1,26 @@
+.tile {
+    width: 100px;
+    height: 100px;
+    background-color: #ccc;
+
+    // Pour les tests
+    @include center(center);
+        
+    &.constructible {
+        cursor: pointer;
+        background-color: orange;
+    }
+    &.tower {
+        cursor: pointer;
+        background-color: orangered;
+    }
+    &.decor {
+        background-color: green;
+    }
+    &.start {
+        background-color: rgb(255, 44, 44);
+    }
+    &.end {
+        background-color: #2d2d2d;
+    }
+}

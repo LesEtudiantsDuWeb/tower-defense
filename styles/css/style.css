@@ -144,3 +144,29 @@ header .primary .link:hover {
   align-items: center;
   justify-content: center;
 }
+
+.tile {
+  width: 100px;
+  height: 100px;
+  background-color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tile.constructible {
+  cursor: pointer;
+  background-color: orange;
+}
+.tile.tower {
+  cursor: pointer;
+  background-color: orangered;
+}
+.tile.decor {
+  background-color: green;
+}
+.tile.start {
+  background-color: #ff2c2c;
+}
+.tile.end {
+  background-color: #2d2d2d;
+}
