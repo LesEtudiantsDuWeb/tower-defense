@@ -1,3 +1,8 @@
+/**
+ * Tableau contenant les classes à ajouter en fonction du type
+ */
+const arrTypeClasses = ['decor', 'start', 'route', 'end', 'constructible', 'tower'];
+
 export default class Tile {
     /**
      * @param {{type:number}} type
@@ -13,7 +18,7 @@ export default class Tile {
          * @type {HTMLDivElement}
          */
         this.element = this.createElement();
-        
+
         this.addClasses();
         this.createEvents();
     }
@@ -26,9 +31,13 @@ export default class Tile {
         const div = document.createElement('div');
         div.classList.add('tile');
         div.textContent = this.type;
+
         return div;
     }
 
+    /**
+     * Génère les events de la case en fonction du type de case que c'est
+     */
     createEvents() {
         switch (this.type) {
             case 0:
@@ -63,6 +72,10 @@ export default class Tile {
         this.addClasses();
     }
 
+    /**
+     * Event lorsque l'on clique sur une case tourelle
+     * Actuellement, cliquer sur une case tower ne fait rien de spéciale
+     */
     createEventTower() {
         console.log('tourelle', this.element);
     }
@@ -72,33 +85,19 @@ export default class Tile {
      */
     removeEvents() {
         this.element.replaceWith((this.element = this.element.cloneNode(true)));
-        // this.element = this.element.cloneNode(true);
     }
 
+    /**
+     * Ajoute la classe CSS à la case en fonction de son type
+     */
     addClasses() {
-        switch (this.type) {
-            case 0:
-                this.element.classList.add('decor');
-                break;
-            case 1:
-                this.element.classList.add('start');
-                break;
-            case 2:
-                this.element.classList.add('route');
-                break;
-            case 3:
-                this.element.classList.add('end');
-                break;
-            case 4:
-                this.element.classList.add('constructible');
-                break;
-            case 5:
-                this.element.classList.add('tower');
-                break;
-        }
+        this.element.classList.add(arrTypeClasses[this.type]);
     }
 
+    /**
+     * Retire la classe CSS en rapport avec le type de case
+     */
     removeClasses() {
-        this.element.classList.remove('decor', 'start', 'route', 'end', 'constructible', 'tower');
+        this.element.classList.remove(...arrTypeClasses);
     }
 }
