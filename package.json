@@ -5,7 +5,8 @@
     "repository": "",
     "license": "MIT",
     "scripts": {
-        "start": "sass --no-source-map --watch styles/scss/index.scss:styles/css/style.css"
+        "start": "sass --no-source-map --watch styles/scss/index.scss:styles/css/style.css",
+        "clone": "git clone https://github.com/LesEtudiantsDuWeb/tower-defense.git --branch Forth"
     },
     "dependencies": {
         "sass": "*"
