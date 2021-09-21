@@ -145,6 +145,19 @@ header .primary .link:hover {
   justify-content: center;
 }
 
+:root {
+  --nbLines: 5;
+  --nbColumns: 5;
+}
+
+.map {
+  display: grid;
+  grid-auto-flow: row dense;
+  grid-template-columns: repeat(var(--nbLines), 100px);
+  grid-template-rows: repeat(var(--nbColumns), 100px);
+  gap: 1em 1em;
+}
+
 .tile {
   width: 100px;
   height: 100px;
