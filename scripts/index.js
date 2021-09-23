@@ -1,18 +1,11 @@
-import { loadJson } from './fetchJson.js';
-import Tile from './Tile.js';
-import utils, { $ } from './utils.js';
+import { Game } from './Game.js';
 
-const map = $('#map');
-const data = await loadJson(); // Charge le JSON
+// Le fichier json est en async, ce qui fait que pour constructruire l'objet, nous avons une promesse.
+// 2 méthodes possibles : async/await ou then()
 
-// Récupère toute la map
-const mapContent = data.map[0].tiles.reduce((accArr, currArr) => accArr.concat(...currArr), []);
+// const myGame = await new Game();
+// myGame.loadMap(1);
 
-// Génère un tableau contenant toutes les cases (HTMLDivElement)
-const tiles = mapContent.map((typeTile) => new Tile({ type: typeTile }));
-
-// Ajoute toutes les cases du tableau dans le DOM
-utils.appendChilds(
-    map,
-    tiles.map((tile) => tile.element),
-);
+new Game().then(myGame => {
+    myGame.loadMap(1);
+})

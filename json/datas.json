@@ -1,42 +1,68 @@
 {
-    "player":{
+    "player": {
         "startGold": 200,
         "startLife": 20
     },
-    "map":[{
-        "col": 5,
-        "lin": 5,
-        "tiles": [  [0,0,1,0,0],
-                    [0,4,2,4,0],
-                    [0,5,2,5,0],
-                    [0,4,2,4,0],
-                    [0,0,3,0,0]],
-        "waves": [0]
-    }],
-    "tiles":[{
-        "type": 0,
-        "name": "Décor",
-        "events": []
-    }],
-    "towers":[{
-        "id": 0,
-        "name": "Basique",
-        "cost": 100,
-        "speed": 1,
-        "damages": 1
-    }],
-    "monsters":[{
-        "id": 0,
-        "name": "Minion",
-        "speed": 1,
-        "life": 2,
-        "gold": 2,
-        "damages": 1
-    }],
-    "waves":[{
-        "id": 0,
-        "monsters": [{"idMonster":0, "quantity":5}],
-        "difficulty": 0,
-        "gold": 10
-    }]
+    "map": [
+        {
+            "nbTiles": { "x": 5, "y": 5 },
+            "tiles": [
+                [0, 0, 1, 0, 0],
+                [0, 4, 2, 4, 0],
+                [0, 5, 2, 5, 0],
+                [0, 4, 2, 4, 0],
+                [0, 0, 3, 0, 0]
+            ],
+            "waves": [0]
+        },
+        {
+            "nbTiles": { "x": 10, "y": 9 },
+            "tiles": [
+                [0, 1, 4, 0, 0, 4, 0, 0, 4, 0],
+                [0, 2, 2, 2, 2, 2, 2, 2, 2, 0],
+                [0, 4, 0, 0, 4, 0, 0, 4, 2, 0],
+                [0, 4, 0, 0, 4, 0, 0, 4, 2, 0],
+                [0, 2, 2, 2, 2, 2, 2, 2, 2, 0],
+                [0, 2, 4, 0, 0, 4, 0, 0, 4, 0],
+                [0, 2, 4, 0, 0, 4, 0, 0, 4, 0],
+                [0, 2, 2, 2, 2, 2, 2, 2, 2, 0],
+                [0, 4, 0, 0, 4, 0, 0, 4, 3, 0]
+            ],
+            "waves": [0]
+        }
+    ],
+    "tiles": [
+        {
+            "type": 0,
+            "name": "Décor",
+            "events": []
+        }
+    ],
+    "towers": [
+        {
+            "id": 0,
+            "name": "Basique",
+            "cost": 100,
+            "speed": 1,
+            "damages": 1
+        }
+    ],
+    "monsters": [
+        {
+            "id": 0,
+            "name": "Minion",
+            "speed": 1,
+            "life": 2,
+            "gold": 2,
+            "damages": 1
+        }
+    ],
+    "waves": [
+        {
+            "id": 0,
+            "monsters": [{ "idMonster": 0, "quantity": 5 }],
+            "difficulty": 0,
+            "gold": 10
+        }
+    ]
 }

@@ -1,7 +1,7 @@
 header {
     background-color: #02020291;
     @include center(space-between);
-    height: 50px;
+    height: $headerHeight;
     padding: 0 2rem;
     position: fixed;
     width: 100vw;
@@ -12,11 +12,11 @@ header {
 
     .primary {
         display: flex;
-        height: 50px;
+        height: $headerHeight;
 
         .link {
             @include center();
-            height: 50px;
+            height: $headerHeight;
             padding: 0 2rem;
 
             // .icon {
@@ -33,7 +33,7 @@ header {
 
 .container {
     width: 100%;
-    min-height: calc(100vh - 50px - 5em);
+    min-height: calc(100vh - #{$headerHeight});
     flex: 100;
     background: transparent;
     @include center(center);

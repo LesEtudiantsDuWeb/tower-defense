@@ -1,12 +1,18 @@
-:root{
-    --nbLines: 5;
+:root {
+    --nbRows: 5;
     --nbColumns: 5;
 }
 
 .map {
     display: grid;
     grid-auto-flow: row dense;
-    grid-template-columns: repeat(var(--nbLines), 100px);
-    grid-template-rows: repeat(var(--nbColumns), 100px);
-    gap: 1em 1em;
+    grid-template-rows: repeat(
+        var(--nbRows),
+        calc(100vmin / max(var(--nbRows), var(--nbColumns)) - 10px)
+    );
+    grid-template-columns: repeat(
+        var(--nbColumns),
+        calc(100vmin / max(var(--nbRows), var(--nbColumns)) - 10px)
+    );
+    gap: $mapGap;
 }

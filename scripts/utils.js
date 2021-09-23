@@ -19,7 +19,27 @@ export const $ = (selector) => document.querySelector(selector);
  * @param {HTMLElement} parent Container
  * @param {HTMLElement[]} elements Tableau contenant les éléments à ajouter
  */
-export const appendChilds = (parent, elements) => elements.forEach(element => parent.appendChild(element));
+export const appendChilds = (parent, elements) => elements.forEach((element) => parent.appendChild(element));
 
+/**
+ * Charge un fichier JSON à partir d'une url
+ * @param {string} url Lien du fichier JSON
+ * @returns {object} Contenu du fichier JSON
+ */
+export const loadJson = async (url) => {
+    try {
+        const res = await fetch(url); // Fetch du JSON
+        return await res.json(); // Returne des données en JSON
+    } catch (err) {
+        console.error(err); // Log les erreurs dans la console
+    }
+};
 
-export default {compareArrays,appendChilds};
+/**
+ * Fusionne un tableau à 2 dimensions pour ne retourner un tableau à une dimension
+ * @param {any[][]} arr Tableau à 2 dimensions
+ * @returns Tableau à 1 dimension
+ */
+export const mergeArrays = (arr) => arr.reduce((accArr, currArr) => accArr.concat(...currArr), []);
+
+export default { compareArrays, appendChilds, loadJson, mergeArrays };
