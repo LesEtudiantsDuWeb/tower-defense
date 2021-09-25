@@ -1,4 +1,4 @@
-export class Tower {
+export class Turret {
     constructor() {
         
     }

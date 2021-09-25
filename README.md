@@ -33,24 +33,7 @@
 ### Case
 - [ ] Type de cases
 
-## Modèle Conceptuel de Données
+## UML
 
-http://mocodo.wingi.net/
-
-Code :
-```
-PLAYER: id, life, gold
-
-TOWER: id, name, type, cost, range, attackSpeed, damage
-Contenir, 0N TOWER, 01 CASE
-CASE: id, type
-Composer, 0N MAP, 01 CASE
-MAP: id, nbCasesX, nbCasesY
-
-MONSTER: id, name, speed, life
-Posseder, 1N WAVE, 0N MONSTER
-WAVE: num, gain, desc
-Lancer, 1N WAVE, 0N MAP
-```
-![MCD](./MCD.svg)
+![UML](./doc/UML.svg)
 

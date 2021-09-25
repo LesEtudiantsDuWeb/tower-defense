@@ -1,0 +1,33 @@
+// https://yuml.me/diagram/scruffy/class/draw
+// Cool Class Diagram
+// ------------------
+
+// Chains
+[Player]<1-*[Game]
+[Game]-[Map]
+[Bullet]*-1>[Turret]
+[Map]1..*-1..*[Wave]
+[Tile]-[Map]
+[Turret]-[Tile]1..*-1>[TypeTile]
+[Wave]*-1..*[Monster]1..*-1>[TypeMonster]
+
+// Add more detail
+[Player; +gold: number; +life: number]
+
+[Monster; +id: number; +movementSpeed: number; +damage: number; +flying: boolean; +gold: number; +type: number|Solution if monsters sorted| +delay: number ]
+
+[TypeMonster; +id: number; +name: string]
+
+[TypeTile; +id: number; +name: string]
+
+[Turret; +id: number; +name: string; +range: number; +attackSpeed: number; +projectileSpeed: number; +cost: number; +ameliorations: array of objects; +monoTarget: boolean; +effect: string, +dot: number]
+
+[Bullet; +id: number; +speed: number; +target: object; +damage: number; +effect: string, +dot: number]
+
+[Game; +currentMap: Map; +datas: object]
+
+[Tile; +element: HTMLDivElement; +type: number; +index: number ]
+
+[Map; +element: HTMLDivElement; +nbTiles: object; +arrTiles: array of Tiles; +nbWaves: number; +delaiWave: number]
+
+[Wave; +id: number; +monsters: array of objects; +gold: number; +difficulty: number|Solution if monsters mixed| +arrPopMonster: Monster; +delay: number|Solution if monsters sorted| +arrPopMonster: Monster]
