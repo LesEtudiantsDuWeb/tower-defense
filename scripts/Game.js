@@ -3,13 +3,13 @@ import { Map } from './Map.js';
 
 export class Game {
     constructor() {
-        // Use of return async/await to be able to use await in constructor
+        // Utilisation de return async/await pour être capable d'utiliser await dans le constructeur
         return (async () => {
-            /** Id of the map */
+            /** Id de la carte */
             // this.mapId = -1;
-            /** Current map the player is playing */
+            /** Carte à laquelle le joueur joue */
             this.currentMap = undefined;
-            /** All datas contained in the json */
+            /** Toute les données contenues dans le json */
             this.datas = await utils.loadJson('../json/datas.json');
 
             return this;
@@ -17,13 +17,13 @@ export class Game {
     }
 
     /**
-     * Load a map choosed by the player
-     * @param {number} mapId Id of the map to load
+     * Charge la carte choisit par le joueur
+     * @param {number} mapId Id de la carte à charger
      */
     loadMap(mapId) {
         // this.mapId = mapId;
 
-        // Populate the map
+        // Instancie la carte à partir des données du json
         this.currentMap = new Map({
             element: $('#map'),
             tiles: utils.mergeArrays(this.datas.map[mapId].tiles),

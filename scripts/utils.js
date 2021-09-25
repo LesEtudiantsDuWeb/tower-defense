@@ -36,7 +36,7 @@ export const loadJson = async (url) => {
 };
 
 /**
- * Fusionne un tableau à 2 dimensions pour ne retourner un tableau à une dimension
+ * Fusionne un tableau à 2 dimensions pour retourner un tableau à une dimension
  * @param {any[][]} arr Tableau à 2 dimensions
  * @returns Tableau à 1 dimension
  */

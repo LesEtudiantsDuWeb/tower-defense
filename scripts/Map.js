@@ -4,27 +4,27 @@ import Tile from './Tile.js';
 export class Map {
     constructor({ element, tiles, nbTiles }) {
         /**
-         * Element of DOM
+         * Element dans le DOM
          * @type {HTMLDivElement}
          */
         this.element = element;
         /**
-         * Nomber of tiles in X and Y
+         * Nombre de cases en X et Y
          * @type {{ x: number, y: number }}
          */
         this.nbTiles = nbTiles;
         /**
-         * Array of tiles
+         * Tableau contenant toutes les cases
          * @type {Tile[]}
          */
-        this.arrTiles = tiles.map((typeTile) => new Tile({ type: typeTile }));
+        this.arrTiles = tiles.map((typeTile, index) => new Tile({ type: typeTile, index }));
     }
 
     /**
-     * Generate all the DOM from array of tiles
+     * Génère le DOM en fonction du tableau des cases
      */
     generateDom() {
-        // Modify css variables for the grid
+        // Modifie les variables CSS pour adapter le grid en fonction du nombre de cases en X et Y
         this.element.style.setProperty('--nbColumns', this.nbTiles.x);
         this.element.style.setProperty('--nbRows', this.nbTiles.y);
 

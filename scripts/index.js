@@ -8,4 +8,6 @@ import { Game } from './Game.js';
 
 new Game().then(myGame => {
     myGame.loadMap(1);
+
+    // Suite du code
 })

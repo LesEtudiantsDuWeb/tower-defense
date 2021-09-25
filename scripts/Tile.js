@@ -7,7 +7,12 @@ export default class Tile {
     /**
      * @param {{type:number}} type
      */
-    constructor({ type }) {
+    constructor({ type, index }) {
+        /**
+         * Index de la case dans le tableau global
+         * @type {number}
+         */
+        this.index = index;
         /**
          * Type de case
          * @type {number}
@@ -30,7 +35,7 @@ export default class Tile {
     createElement() {
         const div = document.createElement('div');
         div.classList.add('tile');
-        div.textContent = this.type;
+        div.textContent = this.getContent();
 
         return div;
     }
@@ -67,7 +72,7 @@ export default class Tile {
         this.removeEvents();
         this.removeClasses();
         this.type = 5;
-        this.element.textContent = this.type;
+        this.element.textContent = this.getContent();
         this.createEvents();
         this.addClasses();
     }
@@ -99,5 +104,12 @@ export default class Tile {
      */
     removeClasses() {
         this.element.classList.remove(...arrTypeClasses);
+    }
+
+    /**
+     * Contenu à mettre dans la div
+     */
+    getContent() {
+        return this.index;
     }
 }
