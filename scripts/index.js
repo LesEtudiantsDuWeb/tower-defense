@@ -1,4 +1,4 @@
-import { Game } from './Game.js';
+import Game from './Game.js';
 
 // Le fichier json est en async, ce qui fait que pour constructruire l'objet, nous avons une promesse.
 // 2 méthodes possibles : async/await ou then()
@@ -7,7 +7,10 @@ import { Game } from './Game.js';
 // myGame.loadMap(1);
 
 new Game().then(myGame => {
-    myGame.loadMap(1);
+    myGame.loadMap(0);
+
+    // Lance la map et donc la première vague
+    myGame.currentMap.createEvents();
 
     // Suite du code
 })

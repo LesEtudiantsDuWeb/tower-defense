@@ -8,22 +8,46 @@
 
     &.constructible {
         cursor: pointer;
-        background-color: orange;
+        @if $sprite {
+            @include sprite(0, 4);
+        } @else {
+            background-color: orange;
+        }
     }
     &.tower {
         cursor: pointer;
-        background-color: orangered;
+        @if $sprite {
+            @include sprite(6, 1);
+        } @else {
+            background-color: orangered;
+        }
     }
     &.decor {
-        background-color: green;
+        @if $sprite {
+            @include sprite(2, 4);
+        } @else {
+            background-color: green;
+        }
     }
     &.start {
-        background-color: rgb(255, 44, 44);
+        @if $sprite {
+            @include sprite(6, 10);
+        } @else {
+            background-color: rgb(255, 44, 44);
+        }
     }
     &.route {
-        background-color: rgb(128, 58, 0);
+        @if $sprite {
+            @include sprite(4, 4);
+        } @else {
+            background-color: rgb(128, 58, 0);
+        }
     }
     &.end {
-        background-color: #2d2d2d;
+        @if $sprite {
+            @include sprite(6, 7);
+        } @else {
+            background-color: #2d2d2d;
+        }
     }
 }

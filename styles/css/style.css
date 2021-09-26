@@ -7,7 +7,7 @@
 }
 
 *::-webkit-scrollbar {
-  width: 5px;
+  width: 10px;
 }
 
 *::-webkit-scrollbar-track {
@@ -80,7 +80,7 @@ header .primary .link:hover {
 
 .container {
   width: 100%;
-  min-height: calc(100vh - 50px);
+  min-height: calc(100vh - 50px - 80px);
   flex: 100;
   background: transparent;
   display: flex;
@@ -135,9 +135,11 @@ header .primary .link:hover {
 .map {
   display: grid;
   grid-auto-flow: row dense;
-  grid-template-rows: repeat(var(--nbRows), calc(100vmin / max(var(--nbRows), var(--nbColumns)) - 10px));
-  grid-template-columns: repeat(var(--nbColumns), calc(100vmin / max(var(--nbRows), var(--nbColumns)) - 10px));
+  grid-template-rows: repeat(var(--nbRows), calc(min(100vh - 50px - 80px, 100vw - 10px) / max(var(--nbRows), var(--nbColumns)) - 10px));
+  grid-template-columns: repeat(var(--nbColumns), calc(min(100vh - 50px - 80px, 100vw - 10px) / max(var(--nbRows), var(--nbColumns)) - 10px));
   gap: 10px;
+  background-color: #e3bb70;
+  position: relative;
 }
 
 .tile {
@@ -150,21 +152,43 @@ header .primary .link:hover {
 }
 .tile.constructible {
   cursor: pointer;
-  background-color: orange;
+  background: url(../../../images/tileset.png) 0 0 no-repeat;
+  background-size: 800% 600%;
+  background-position: calc(0 / 14 * 100%) calc(4 / 10 * 100%);
 }
 .tile.tower {
   cursor: pointer;
-  background-color: orangered;
+  background: url(../../../images/tileset.png) 0 0 no-repeat;
+  background-size: 800% 600%;
+  background-position: calc(6 / 14 * 100%) calc(1 / 10 * 100%);
 }
 .tile.decor {
-  background-color: green;
+  background: url(../../../images/tileset.png) 0 0 no-repeat;
+  background-size: 800% 600%;
+  background-position: calc(2 / 14 * 100%) calc(4 / 10 * 100%);
 }
 .tile.start {
-  background-color: #ff2c2c;
+  background: url(../../../images/tileset.png) 0 0 no-repeat;
+  background-size: 800% 600%;
+  background-position: calc(6 / 14 * 100%) calc(10 / 10 * 100%);
 }
 .tile.route {
-  background-color: #803a00;
+  background: url(../../../images/tileset.png) 0 0 no-repeat;
+  background-size: 800% 600%;
+  background-position: calc(4 / 14 * 100%) calc(4 / 10 * 100%);
 }
 .tile.end {
-  background-color: #2d2d2d;
+  background: url(../../../images/tileset.png) 0 0 no-repeat;
+  background-size: 800% 600%;
+  background-position: calc(6 / 14 * 100%) calc(7 / 10 * 100%);
+}
+
+.monster {
+  width: 50px;
+  height: 50px;
+  background-color: #80008055;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
 }

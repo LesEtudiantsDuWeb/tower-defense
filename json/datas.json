@@ -13,7 +13,7 @@
                 [0, 4, 2, 4, 0],
                 [0, 0, 3, 0, 0]
             ],
-            "waves": [0],
+            "waves": [0, 1, 0],
             "routes": [[2, 7, 12, 17, 22, 27]]
         },
         {
@@ -45,7 +45,7 @@
             "events": []
         }
     ],
-    "towers": [
+    "turrets": [
         {
             "id": 0,
             "name": "Basique",
@@ -57,11 +57,23 @@
     "monsters": [
         {
             "id": 0,
-            "name": "Minion",
-            "speed": 1,
+            "name": "Goblin",
+            "movement": 1,
             "life": 2,
             "gold": 2,
-            "damages": 1
+            "damages": 1,
+            "flying": false,
+            "type":0
+        },
+        {
+            "id": 1,
+            "name": "Orc",
+            "movement": 2,
+            "life": 5,
+            "gold": 5,
+            "damages": 2,
+            "flying": false,
+            "type":0
         }
     ],
     "waves": [
@@ -70,6 +82,12 @@
             "monsters": [{ "idMonster": 0, "quantity": 5 }],
             "difficulty": 0,
             "gold": 10
+        },
+        {
+            "id": 1,
+            "monsters": [{ "idMonster": 0, "quantity": 2 },{ "idMonster": 1, "quantity": 4 }],
+            "difficulty": 1,
+            "gold": 5
         }
     ]
 }

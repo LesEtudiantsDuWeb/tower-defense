@@ -1,11 +1,18 @@
 /**
  * Tableau contenant les classes à ajouter en fonction du type
  */
-const arrTypeClasses = ['decor', 'start', 'route', 'end', 'constructible', 'tower'];
+const arrTypeClasses = Object.freeze({
+    0: 'decor',
+    1: 'start',
+    2: 'route',
+    3: 'end',
+    4: 'constructible',
+    5: 'tower',
+});
 
 export default class Tile {
     /**
-     * @param {{type:number}} type
+     * @param {{ index: number, type: number }} Tile
      */
     constructor({ type, index }) {
         /**
@@ -103,7 +110,8 @@ export default class Tile {
      * Retire la classe CSS en rapport avec le type de case
      */
     removeClasses() {
-        this.element.classList.remove(...arrTypeClasses);
+        // this.element.classList.remove(...arrTypeClasses);
+        this.element.classList.remove(arrTypeClasses[this.type]);
     }
 
     /**

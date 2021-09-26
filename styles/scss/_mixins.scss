@@ -18,3 +18,9 @@
     position: sticky;
     top: $top;
 }
+
+@mixin sprite($x,$y) {
+    background: url(../../../images/tileset.png) 0 0 no-repeat;
+    background-size: 800% 600%;
+    background-position: calc(#{$x} / 14 * 100%) calc(#{$y} / 10 * 100%);
+}

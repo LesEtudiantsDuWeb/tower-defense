@@ -8,11 +8,14 @@
     grid-auto-flow: row dense;
     grid-template-rows: repeat(
         var(--nbRows),
-        calc(100vmin / max(var(--nbRows), var(--nbColumns)) - 10px)
+        calc(min(100vh - #{$headerHeight} - #{$footerHeight}, 100vw - 10px) / max(var(--nbRows), var(--nbColumns)) - 10px)
     );
     grid-template-columns: repeat(
         var(--nbColumns),
-        calc(100vmin / max(var(--nbRows), var(--nbColumns)) - 10px)
+        calc(min(100vh - #{$headerHeight} - #{$footerHeight}, 100vw - 10px) / max(var(--nbRows), var(--nbColumns)) - 10px)
     );
     gap: $mapGap;
+    background-color: #e3bb70;
+
+    position: relative;
 }

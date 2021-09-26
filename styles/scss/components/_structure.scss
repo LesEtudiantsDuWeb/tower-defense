@@ -33,7 +33,7 @@ header {
 
 .container {
     width: 100%;
-    min-height: calc(100vh - #{$headerHeight});
+    min-height: calc(100vh - #{$headerHeight} - #{$footerHeight});
     flex: 100;
     background: transparent;
     @include center(center);
