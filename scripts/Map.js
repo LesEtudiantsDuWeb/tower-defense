@@ -2,6 +2,13 @@ import utils from './utils.js';
 import Tile from './Tile.js';
 import Wave from './Wave.js';
 
+/**
+ * La classe Map gère tout ce qui est en rapport avec la map.
+ * 
+ * + generateDom() : Génère le DOM en fonction du tableau des cases
+ * + getRoutes() : Retourne les routes de la map
+ * + createEvents() : Génère les évènements de la map
+ */
 export default class Map {
     /**
      *

@@ -1,3 +1,8 @@
+const COMMON = 0;
+const RARE = 1;
+const ELITE = 2;
+const BOSS = 3;
+
 const TypeMonster = Object.freeze({
     0: 'Commom',
     1: 'Rare',
@@ -5,6 +10,15 @@ const TypeMonster = Object.freeze({
     3: 'Boss',
 });
 
+/**
+ * La classe Monstre gère le monstre en lui-même.
+ * 
+ * + createElement() : Génère une div avec la classe tile ainsi que la classe correspondant à son type
+ * + createEvents() : Génère les évènements du monstre (apparition, déplacement, disparition)
+ * + startMove() : Met en place le monstre sur la carte
+ * + setRoute() : Met à jour la route du monstre
+ * + setWave() : Met à jour la vague à laquelle le monstre appartient
+ */
 export default class Monster {
     constructor({ id, name, life, movement, damages, flying, gold, type }) {
         // Données du json

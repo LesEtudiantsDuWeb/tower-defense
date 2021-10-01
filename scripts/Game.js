@@ -1,6 +1,12 @@
 import utils, { $ } from './utils.js';
 import Map from './Map.js';
 
+/**
+ * La classe Game gère la partie en elle-même. Elle contient l'ensemble des
+ * données contenus dans le json.
+ * 
+ * + loadMap() :  Charge la carte choisit par le joueur
+ */
 export default class Game {
     constructor() {
         // Utilisation de return async/await pour être capable d'utiliser await dans le constructeur

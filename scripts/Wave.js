@@ -1,6 +1,13 @@
 import Monster from './Monster.js';
 import utils from './utils.js';
 
+/**
+ * La classe Wave gère l'ensemble de la vague.
+ *
+ * + generatePopMonsters() : Génère un tableau contenant l'ensemble des monstres de la vague.
+ * + createEvents() : Génère les évènements de la vague
+ * + launchWave() : Démarre la vague.
+ */
 export default class Wave {
     /**
      * @param {object} param
@@ -68,18 +75,26 @@ export default class Wave {
      * Ca simplifiera son utilisation.
      */
     generatePopMonsters() {
-        return this.jsonWaveMonsters
-            .reduce(
-                (arr, monster) => [
-                    ...arr,
-                    ...Array.from(
-                        { length: monster.quantity },
-                        () => new Monster(utils.getContentById(monster.idMonster, this.jsonMonsters)),
-                    ),
-                ],
-                [],
-            )
-            .reverse();
+        return (
+            this.jsonWaveMonsters
+                // Fusionne les différents monstres en un seul tableau
+                .reduce(
+                    (arr, monster) => [
+                        // Tableau qui sera retourné à la fin
+                        ...arr,
+                        // Génère un tableau de n éléments
+                        ...Array.from(
+                            // n éléments correspondant au nombre de monstres dans la vague
+                            { length: monster.quantity },
+                            // On récupère l'objet du monstre à partir de son id
+                            () => new Monster(utils.getContentById(monster.idMonster, this.jsonMonsters)),
+                        ),
+                    ],
+                    [],
+                )
+                // On inverse l'ordre du tableau
+                .reverse()
+        );
     }
 
     /**
