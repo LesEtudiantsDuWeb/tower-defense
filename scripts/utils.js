@@ -59,7 +59,35 @@ export const getContentByIds = (array, arrayOfContents) => array.map((id) => get
 // export const getContentByObjectsWithId = (arrayOfObjects, arrayOfContents, propertyName) =>
 //     arrayOfObjects.map((object) => getContentById(object[propertyName], arrayOfContents));
 
+/**
+ * Calcul des distances entre projectile et cible
+ * @param {number} bulletX
+ * @param {number} bulletY
+ * @param {number} targetX
+ * @param {number} targetY
+ * @returns {object} distance de la cible en x et en y et distance total de trajet
+ */
+export function trajCalculation(bulletX, bulletY, targetX, targetY) {
+    let x = targetX - bulletX;
+    let y = targetY - bulletY;
 
+    let travelDistance = distCalculation(x, y);
+
+    x /= travelDistance;
+    y /= travelDistance;
+
+    return { x, y, travelDistance };
+}
+
+/**
+ * Calcul de la distance en ligne droite entre 2 points
+ * @param {number} deltaX
+ * @param {number} deltaY
+ * @returns {number} distance de trajet entre les deux points
+ */
+export const distCalculation = (deltaX, deltaY) => {
+    return Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+};
 
 export default {
     compareArrays,
@@ -69,4 +97,5 @@ export default {
     getContentById,
     getContentByIds,
     // getContentByObjectsWithId,
+    trajCalculation,
 };
