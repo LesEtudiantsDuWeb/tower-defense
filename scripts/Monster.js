@@ -48,6 +48,12 @@ export default class Monster {
          * @type Wave
          */
         this.wave = undefined;
+
+        /**
+         * Container des monsters
+         * @type {HTMLDivElement}
+         */
+        this.container = document.querySelector('#monsters');
     }
 
     /**
@@ -83,7 +89,7 @@ export default class Monster {
         Object.assign(this.element.style, style);
 
         // Ajoute le monstre au body afin de pouvoir le déplacer plus facilement d'une case à une autre
-        document.body.appendChild(this.element);
+        this.container.appendChild(this.element);
 
         // Génère les évènements pour le faire se déplacer sur la route
         this.createEvents();
