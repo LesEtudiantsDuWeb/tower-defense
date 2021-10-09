@@ -61,7 +61,6 @@ export default class Game {
         this.timestamp;
 
         this.currentMap.updateStates(this.timestamp);
-
     }
 
     update() {
@@ -72,6 +71,14 @@ export default class Game {
 
         this.updateStates();
 
-        // if (this.timestamp === 360) this.stop();
+        if (this.timestamp === 50) {
+            console.log('hannnnnnn');
+            this.stop();
+            // console.log(this.currentMap.currentWave.arrMonstersInMap);
+            // console.log(this.currentMap.waveIteration2(wave => wave.arrMonstersInMap));
+            setTimeout(() => this.update(), 3000);
+        }
+
+        if (this.timestamp === 500) this.stop();
     }
 }

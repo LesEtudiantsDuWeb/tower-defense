@@ -66,7 +66,7 @@ export default class Map {
          * @type Wave[]
          */
         // this.arrWaves = waves.map((wave) => new Wave({ ...wave, jsonMonsters, map: this }));
-        this.currentWave = this.generateWave();
+        this.currentWaves = [this.generateWave()];
     }
     
     generateWave() {
@@ -78,7 +78,7 @@ export default class Map {
     nextWave() {
         if (this.currentWaveIndex < this.waves.length - 1) {
             this.currentWaveIndex++;
-            this.currentWave = this.generateWave();
+            this.currentWaves.push(this.generateWave());
             this.createEvents();
         }
     }
@@ -111,10 +111,20 @@ export default class Map {
     createEvents() {
         // Démarre la vague courrante
         // this.arrWaves[this.currentWaveIndex].launchWave();
-        this.currentWave.createEvents();
+        this.waveIteration((wave) => wave.createEvents());
     }
 
     updateStates(timestamp) {
-        this.currentWave.updateStates(timestamp);
+        this.waveIteration((wave) => wave.updateStates(timestamp));
+    }
+
+    waveIteration(fn) {
+        this.currentWaves.forEach(fn);
+    }
+
+    // TODO Delete later
+    // Juste pour les tests (pour avoir un truc à afficher avec console.log)
+    waveIteration2(fn) {
+        return this.currentWaves.map(fn);
     }
 }

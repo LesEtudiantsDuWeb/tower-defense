@@ -119,7 +119,7 @@ export default class Wave {
             // Récupère le premier monstre du tableau d'apparition
             const monster = this.arrPopMonsters.pop();
 
-            console.log('Apparition du monste', monster);
+            console.log('Vague', this.id, 'Apparition du monstre', monster);
             // Met à jour la route du monstre
             // NOTE : Actuellement, on considère qu'il n'y a qu'une route
             // Pas la suite, il faudra soit faire une wave par route, soit répartir
@@ -134,7 +134,10 @@ export default class Wave {
             this.arrMonstersInMap.push(monster);
         } else {
             // Wave terminée !
-            this.map.nextWave();
+            setTimeout(() => {
+                this.map.nextWave();
+            },5000)
+                
         }
     }
 
@@ -142,6 +145,6 @@ export default class Wave {
         if (timestamp % 10 === 0) {
             this.popMonster();
         }
-        this.arrMonstersInMap.forEach(monster => monster.updateStates(timestamp));
+        this.arrMonstersInMap.forEach((monster) => monster.updateStates(timestamp));
     }
 }

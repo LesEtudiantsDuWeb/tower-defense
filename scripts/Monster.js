@@ -96,8 +96,18 @@ export default class Monster {
     }
 
     setPosition() {
-        const rectTile = this.element.getBoundingClientRect();
-        this.element.style.setProperty('top', (rectTile.y + 10) + 'px');
+        const rect = this.element.getBoundingClientRect();
+        this.element.style.setProperty('top', (rect.y + 10) + 'px');
+        if (rect.y > 666) {
+            this.element.remove();
+            this.wave.arrMonstersInMap = this.wave.arrMonstersInMap.filter(monster => monster !== this);
+            console.log(this.wave.arrMonstersInMap);
+            if (!this.wave.arrMonstersInMap.length) {
+                this.wave.map.currentWaves = this.wave.map.currentWaves.filter(wave => wave !== this.wave);
+                console.log("Vague",this.id,"terminée !");
+                // this.wave.map.nextWave();
+            }
+        }
     }
 
     // Met à jour la route du monstre

@@ -13,7 +13,7 @@
                 [0, 4, 2, 4, 0],
                 [0, 0, 3, 0, 0]
             ],
-            "waves": [0, 1, 0],
+            "waves": [0, 1, 2],
             "routes": [[2, 7, 12, 17, 22, 27]]
         },
         {
@@ -85,6 +85,12 @@
         },
         {
             "id": 1,
+            "monsters": [{ "idMonster": 0, "quantity": 2 },{ "idMonster": 1, "quantity": 4 }],
+            "difficulty": 1,
+            "gold": 5
+        },
+        {
+            "id": 2,
             "monsters": [{ "idMonster": 0, "quantity": 2 },{ "idMonster": 1, "quantity": 4 }],
             "difficulty": 1,
             "gold": 5
