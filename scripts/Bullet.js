@@ -19,6 +19,7 @@ export default class Bullet {
      * @param {number} damages
      */
     constructor(originX, originY, targetX, targetY, speed, damages) {
+    // constructor(originX, originY, target, speed, damages) {
         /**
          * origine X du projectile
          * @type {number}
@@ -55,6 +56,9 @@ export default class Bullet {
          * @type {HTMLDivElement}
          */
         this.element = this.createBullet();
+
+        // Objet Monster => Monster.element.getBoundingClientRect() / Monster.getPosition()
+        this.target = target;
     }
 
     /**

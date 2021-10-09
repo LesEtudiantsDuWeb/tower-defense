@@ -12,7 +12,7 @@ const TypeMonster = Object.freeze({
 
 /**
  * La classe Monstre gère le monstre en lui-même.
- * 
+ *
  * + createElement() : Génère une div avec la classe tile ainsi que la classe correspondant à son type
  * + createEvents() : Génère les évènements du monstre (apparition, déplacement, disparition)
  * + startMove() : Met en place le monstre sur la carte
@@ -74,7 +74,7 @@ export default class Monster {
     /**
      * Met en place le monstre sur la carte
      */
-    startMove() {
+    initialPosition() {
         // Récupère la position et la taille de la carte de départ de la vague
         const rectTile = this.wave.map.arrTiles[this.route[0]].element.getBoundingClientRect();
 
@@ -95,6 +95,11 @@ export default class Monster {
         this.createEvents();
     }
 
+    setPosition() {
+        const rectTile = this.element.getBoundingClientRect();
+        this.element.style.setProperty('top', (rectTile.y + 10) + 'px');
+    }
+
     // Met à jour la route du monstre
     setRoute(route) {
         this.route = route;
@@ -103,5 +108,9 @@ export default class Monster {
     // Met à jour la vague à laquelle le monstre appartient
     setWave(wave) {
         this.wave = wave;
+    }
+
+    updateStates(timestamp) {
+        this.setPosition();
     }
 }

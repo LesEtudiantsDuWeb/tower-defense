@@ -86,7 +86,10 @@ export default class Turret {
      * @returns {object} bullet
      */
     turretShot(tx, ty) {
+        // Selection de la target Monster
+
         const bullet = new Bullet(this.x, this.y, tx, ty, this.bulletSpeed, null);
+        // const bullet = new Bullet(this.x, this.y, arrMonster[15], this.bulletSpeed, null);
 
         return bullet;
     }

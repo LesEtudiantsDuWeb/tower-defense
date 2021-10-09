@@ -60,6 +60,13 @@ export default class Wave {
          * @type Monster[]
          */
         this.arrPopMonsters = this.generatePopMonsters();
+        console.log(this.arrPopMonsters);
+
+        /**
+         * Tableau contenant l'ensemble des monstres présent sur la map
+         * @type Monster[]
+         */
+        this.arrMonstersInMap = [];
     }
 
     /**
@@ -101,24 +108,40 @@ export default class Wave {
      * Génère les évènements de la vague
      */
     createEvents() {
-        this.launchWave();
+        this.popMonster();
     }
 
     /**
      * Démarre la vague
      */
-    launchWave() {
-        // Récupère le premier monstre du tableau d'apparition
-        const monster = this.arrPopMonsters.pop();
-        // Met à jour la route du monstre
-        // NOTE : Actuellement, on considère qu'il n'y a qu'une route
-        // Pas la suite, il faudra soit faire une wave par route, soit répartir
-        // les monstres à travers les différentes routes
-        monster.setRoute(this.map.getRoutes()[0]);
-        // Met à jour la wave du monstre (permet d'avoir accès aux infos de la
-        // wave et de la map directement dans le monstre)
-        monster.setWave(this);
-        // Démarre son mouvement en le placant sur la carte
-        monster.startMove();
+    popMonster() {
+        if (this.arrPopMonsters.length) {
+            // Récupère le premier monstre du tableau d'apparition
+            const monster = this.arrPopMonsters.pop();
+
+            console.log('Apparition du monste', monster);
+            // Met à jour la route du monstre
+            // NOTE : Actuellement, on considère qu'il n'y a qu'une route
+            // Pas la suite, il faudra soit faire une wave par route, soit répartir
+            // les monstres à travers les différentes routes
+            monster.setRoute(this.map.getRoutes()[0]);
+            // Met à jour la wave du monstre (permet d'avoir accès aux infos de la
+            // wave et de la map directement dans le monstre)
+            monster.setWave(this);
+            // Démarre son mouvement en le placant sur la carte
+            monster.initialPosition();
+
+            this.arrMonstersInMap.push(monster);
+        } else {
+            // Wave terminée !
+            this.map.nextWave();
+        }
+    }
+
+    updateStates(timestamp) {
+        if (timestamp % 10 === 0) {
+            this.popMonster();
+        }
+        this.arrMonstersInMap.forEach(monster => monster.updateStates(timestamp));
     }
 }

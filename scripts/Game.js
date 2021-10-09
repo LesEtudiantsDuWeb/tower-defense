@@ -4,7 +4,7 @@ import Map from './Map.js';
 /**
  * La classe Game gère la partie en elle-même. Elle contient l'ensemble des
  * données contenus dans le json.
- * 
+ *
  * + loadMap() :  Charge la carte choisit par le joueur
  */
 export default class Game {
@@ -20,6 +20,9 @@ export default class Game {
             // TODO Remove later
             this.isPlaying = true;
 
+            this.timestamp = 0;
+            this.animFrameId = 0;
+
             return this;
         })();
     }
@@ -31,7 +34,7 @@ export default class Game {
     loadMap(mapId) {
         // Instancie la carte à partir des données du json
         /**
-         * 
+         *
          */
         this.currentMap = new Map({
             element: $('#map'),
@@ -39,9 +42,36 @@ export default class Game {
             nbTiles: this.datas.map[mapId].nbTiles,
             waves: utils.getContentByIds(this.datas.map[mapId].waves, this.datas.waves),
             jsonMonsters: this.datas.monsters,
-            jsonMapRoutes: this.datas.map[mapId].routes
+            jsonMapRoutes: this.datas.map[mapId].routes,
         });
 
         this.currentMap.generateDom();
+    }
+
+    play() {
+        this.currentMap.createEvents();
+        this.update();
+    }
+
+    stop() {
+        cancelAnimationFrame(this.animFrameId);
+    }
+
+    updateStates() {
+        this.timestamp;
+
+        this.currentMap.updateStates(this.timestamp);
+
+    }
+
+    update() {
+        this.animFrameId = requestAnimationFrame(() => this.update()); // Create the loop at each frame
+
+        //   Create a counter to follow time of the play
+        this.timestamp += 1;
+
+        this.updateStates();
+
+        // if (this.timestamp === 360) this.stop();
     }
 }

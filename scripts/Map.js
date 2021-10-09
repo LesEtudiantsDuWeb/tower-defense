@@ -49,7 +49,10 @@ export default class Map {
          * Vague courrante
          * @type number
          */
-        this.currentWave = 0;
+        this.currentWaveIndex = 0;
+
+        this.jsonMonsters = jsonMonsters;
+        this.waves = waves;
 
         /************************************
          * Tableau contenant toutes les cases
@@ -58,9 +61,26 @@ export default class Map {
          *      on chargera 2 fois les données de la wave 0 plutot que de réutiliser celles déjà récupérées.
          * 
          * TODO Générer les tableaux de chaque élément du json dans Game
+         * NOTE Actuellement on génère toutes les waves alors que le joueur peut perdre à la première
+         * TODO Générer uniquement la vague en cours
          * @type Wave[]
          */
-        this.arrWaves = waves.map((wave) => new Wave({ ...wave, jsonMonsters, map: this }));
+        // this.arrWaves = waves.map((wave) => new Wave({ ...wave, jsonMonsters, map: this }));
+        this.currentWave = this.generateWave();
+    }
+    
+    generateWave() {
+        console.log("Génération de la vague",this.currentWaveIndex);
+        // NOTE modifier map par routes ?
+        return new Wave({ ...this.waves[this.currentWaveIndex], jsonMonsters:this.jsonMonsters, map: this });
+    }
+
+    nextWave() {
+        if (this.currentWaveIndex < this.waves.length - 1) {
+            this.currentWaveIndex++;
+            this.currentWave = this.generateWave();
+            this.createEvents();
+        }
     }
 
     /**
@@ -90,6 +110,11 @@ export default class Map {
      */
     createEvents() {
         // Démarre la vague courrante
-        this.arrWaves[this.currentWave].launchWave();
+        // this.arrWaves[this.currentWaveIndex].launchWave();
+        this.currentWave.createEvents();
+    }
+
+    updateStates(timestamp) {
+        this.currentWave.updateStates(timestamp);
     }
 }

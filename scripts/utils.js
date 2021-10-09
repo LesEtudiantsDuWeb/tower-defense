@@ -85,9 +85,7 @@ export function trajCalculation(bulletX, bulletY, targetX, targetY) {
  * @param {number} deltaY
  * @returns {number} distance de trajet entre les deux points
  */
-export const distCalculation = (deltaX, deltaY) => {
-    return Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-};
+export const distCalculation = (deltaX, deltaY) => Math.sqrt(deltaX * deltaX + deltaY * deltaY);
 
 export default {
     compareArrays,

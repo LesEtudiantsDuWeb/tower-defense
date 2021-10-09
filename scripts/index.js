@@ -10,7 +10,7 @@ new Game().then(myGame => {
     myGame.loadMap(0);
 
     // Lance la map et donc la première vague
-    myGame.currentMap.createEvents();
+    myGame.play();
 
     // Suite du code
 })
