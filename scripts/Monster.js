@@ -100,9 +100,12 @@ export default class Monster {
         this.element.style.setProperty('top', (rect.y + 10) + 'px');
         if (rect.y > 666) {
             this.element.remove();
+            // Remove monster du tableau
+            // TODO Fix (Si le monstre est dans une autre vague, ca fou le bordel !!!)
             this.wave.arrMonstersInMap = this.wave.arrMonstersInMap.filter(monster => monster !== this);
             console.log(this.wave.arrMonstersInMap);
             if (!this.wave.arrMonstersInMap.length) {
+                // Retire vague du tableau
                 this.wave.map.currentWaves = this.wave.map.currentWaves.filter(wave => wave !== this.wave);
                 console.log("Vague",this.id,"terminée !");
                 // this.wave.map.nextWave();

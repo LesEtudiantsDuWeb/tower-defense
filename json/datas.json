@@ -91,7 +91,7 @@
         },
         {
             "id": 2,
-            "monsters": [{ "idMonster": 0, "quantity": 2 },{ "idMonster": 1, "quantity": 4 }],
+            "monsters": [{ "idMonster": 1, "quantity": 3 },{ "idMonster": 0, "quantity": 6 }],
             "difficulty": 1,
             "gold": 5
         }
