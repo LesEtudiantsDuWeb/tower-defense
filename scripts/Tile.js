@@ -1,3 +1,10 @@
+const TYPE_DECOR = 0;
+const TYPE_START = 1;
+const TYPE_ROUTE = 2;
+const TYPE_END = 3;
+const TYPE_CONSTRUCTIBLE = 4;
+const TYPE_TURRET = 5;
+
 /**
  * Tableau contenant les classes à ajouter en fonction du type
  */
@@ -7,7 +14,7 @@ const arrTypeClasses = Object.freeze({
     2: 'route',
     3: 'end',
     4: 'constructible',
-    5: 'tower',
+    5: 'turret',
 });
 
 export default class Tile {
@@ -52,18 +59,18 @@ export default class Tile {
      */
     createEvents() {
         switch (this.type) {
-            case 0:
+            case TYPE_DECOR:
                 break;
-            case 1:
+            case TYPE_START:
                 break;
-            case 2:
+            case TYPE_ROUTE:
                 break;
-            case 3:
+            case TYPE_END:
                 break;
-            case 4:
+            case TYPE_CONSTRUCTIBLE:
                 this.element.addEventListener('click', () => this.createEventConstructible());
                 break;
-            case 5:
+            case TYPE_TURRET:
                 this.element.addEventListener('click', () => this.createEventTower());
                 break;
         }
@@ -78,7 +85,7 @@ export default class Tile {
 
         this.removeEvents();
         this.removeClasses();
-        this.type = 5;
+        this.type = TYPE_TURRET;
         this.element.textContent = this.getContent();
         this.createEvents();
         this.addClasses();

@@ -1,7 +1,7 @@
-const COMMON = 0;
-const RARE = 1;
-const ELITE = 2;
-const BOSS = 3;
+const TYPE_COMMON = 0;
+const TYPE_RARE = 1;
+const TYPE_ELITE = 2;
+const TYPE_BOSS = 3;
 
 const TypeMonster = Object.freeze({
     0: 'Commom',
@@ -95,9 +95,13 @@ export default class Monster {
         this.createEvents();
     }
 
+    /**
+     * Met à jour la position du monstre
+     */
     setPosition() {
         const rect = this.element.getBoundingClientRect();
         this.element.style.setProperty('top', rect.y + 5 + 'px');
+
         if (rect.y > 666) {
             // Remove monster du tableau
             // TODO Fix (Si le monstre est dans une autre vague, ca fou le bordel !!!)
@@ -105,24 +109,29 @@ export default class Monster {
                 (monster) => monster.element !== this.element,
             );
             this.element.remove();
+            console.log('Vague', this.wave.waveNumber, "Disparition du monstre", this);
+            
             if (!this.wave.arrMonstersInMap.length) {
-                // Retire vague du tableau
+                // Retire la vague du tableau
                 this.wave.map.currentWaves = this.wave.map.currentWaves.filter((wave) => wave !== this.wave);
                 console.log('Vague', this.wave.waveNumber, 'terminée !');
                 if (this.wave.map.finished) {
                     this.wave.map.game.stop();
                 }
-                // this.wave.map.nextWave();
             }
         }
     }
 
-    // Met à jour la route du monstre
+    /**
+     * Met à jour la route du monstre
+     */ 
     setRoute(route) {
         this.route = route;
     }
 
-    // Met à jour la vague à laquelle le monstre appartient
+    /**
+     * Met à jour la vague à laquelle le monstre appartient
+     */
     setWave(wave) {
         this.wave = wave;
     }

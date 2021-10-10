@@ -14,7 +14,7 @@
             background-color: orange;
         }
     }
-    &.tower {
+    &.turret {
         cursor: pointer;
         @if $sprite {
             @include sprite(6, 1);

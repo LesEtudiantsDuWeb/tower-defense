@@ -52,7 +52,7 @@ export default class Game {
     }
 
     play() {
-        this.currentMap.createEvents();
+        this.currentMap.nextWave();
         this.update();
     }
 
@@ -67,24 +67,25 @@ export default class Game {
     }
 
     update() {
-        this.animFrameId = requestAnimationFrame(() => this.update()); // Create the loop at each frame
+        this.animFrameId = requestAnimationFrame(() => this.update());
 
-        //   Create a counter to follow time of the play
+        // Incrémente le timestamp afin de pouvoir manipuler plus facilement les vitesses de
+        // déplacement des éléments
         this.timestamp += 1;
 
         this.updateStates();
 
+        // Test du mode pause
         if (this.timestamp === 50) {
+            // Met en pause
             console.log('Pause activée');
             this.stop();
-            // console.log(this.currentMap.currentWave.arrMonstersInMap);
-            // console.log(this.currentMap.waveIteration2(wave => wave.arrMonstersInMap));
+            
+            // Remet en lecture
             setTimeout(() => {
                 console.log('Lecture activée');
                 this.update();
             }, 3000);
         }
-
-        // if (this.timestamp === 430) this.stop();
     }
 }

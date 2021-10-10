@@ -66,7 +66,7 @@ export default class Map {
          * Vague courante
          * @type number
          */
-        this.currentWaveIndex = 0;
+        this.currentWaveIndex = -1;
 
         /**
          * Tableau contenant l'ensemble des vagues de la map
@@ -85,8 +85,12 @@ export default class Map {
          *
          * @type Wave[]
          */
-        this.currentWaves = [this.generateWave()];
+        this.currentWaves = [];
 
+        /**
+         * Contient l'état du jeu, 
+         * @type boolean
+         */
         this.finished = false;
     }
 
@@ -108,7 +112,6 @@ export default class Map {
             this.createEvents();
         } else {
             this.finished = true;
-            // this.game.stop();
         }
     }
 

@@ -156,7 +156,7 @@ header .primary .link:hover {
   background-size: 800% 600%;
   background-position: calc(0 / 14 * 100%) calc(4 / 10 * 100%);
 }
-.tile.tower {
+.tile.turret {
   cursor: pointer;
   background: url(../../../images/tileset.png) 0 0 no-repeat;
   background-size: 800% 600%;
@@ -191,4 +191,16 @@ header .primary .link:hover {
   align-items: center;
   justify-content: center;
   position: absolute;
+}
+
+.bullet {
+  width: 10px;
+  height: 10px;
+  background-color: #0238ce;
+}
+
+.turret2 {
+  width: 30px;
+  height: 30px;
+  background-color: hotpink;
 }
