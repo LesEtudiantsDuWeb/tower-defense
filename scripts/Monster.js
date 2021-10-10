@@ -102,19 +102,23 @@ export default class Monster {
         const rect = this.element.getBoundingClientRect();
         this.element.style.setProperty('top', rect.y + 5 + 'px');
 
+        // Si le monstre a atteint la sortie
         if (rect.y > 666) {
-            // Remove monster du tableau
-            // TODO Fix (Si le monstre est dans une autre vague, ca fou le bordel !!!)
+            console.log('Vague', this.wave.waveNumber, 'Disparition du monstre', this);
+            // Retire le monstre du tableau
             this.wave.arrMonstersInMap = this.wave.arrMonstersInMap.filter(
                 (monster) => monster.element !== this.element,
             );
+            // Retire le monstre du dom
             this.element.remove();
-            console.log('Vague', this.wave.waveNumber, "Disparition du monstre", this);
-            
-            if (!this.wave.arrMonstersInMap.length) {
+
+            // On vérifie qu'il ne reste pas des monstre sur le carte ainsi qu'à apparaitre
+            if (!(this.wave.arrMonstersInMap.length + this.wave.arrPopMonsters.length)) {
                 // Retire la vague du tableau
                 this.wave.map.currentWaves = this.wave.map.currentWaves.filter((wave) => wave !== this.wave);
                 console.log('Vague', this.wave.waveNumber, 'terminée !');
+
+                // Si c'était la dernière vague de la map, on termine le jeu
                 if (this.wave.map.finished) {
                     this.wave.map.game.stop();
                 }
@@ -124,7 +128,7 @@ export default class Monster {
 
     /**
      * Met à jour la route du monstre
-     */ 
+     */
     setRoute(route) {
         this.route = route;
     }
