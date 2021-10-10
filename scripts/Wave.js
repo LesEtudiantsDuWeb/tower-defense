@@ -71,6 +71,8 @@ export default class Wave {
          * @type Monster[]
          */
         this.arrMonstersInMap = [];
+
+        this.delaiBeforeNextWave = 5000;
     }
 
     /**
@@ -140,8 +142,7 @@ export default class Wave {
             // Wave terminée !
             setTimeout(() => {
                 this.map.nextWave();
-            },5000)
-                
+            }, this.delaiBeforeNextWave);
         }
     }
 
