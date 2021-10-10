@@ -61,8 +61,6 @@ export default class Game {
     }
 
     updateStates() {
-        this.timestamp;
-
         this.currentMap.updateStates(this.timestamp);
     }
 

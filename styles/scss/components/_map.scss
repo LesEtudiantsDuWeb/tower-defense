@@ -1,6 +1,7 @@
 :root {
     --nbRows: 5;
     --nbColumns: 5;
+    --tile-size: 30px;
 }
 
 .map {
@@ -8,11 +9,11 @@
     grid-auto-flow: row dense;
     grid-template-rows: repeat(
         var(--nbRows),
-        calc(min(100vh - #{$headerHeight} - #{$footerHeight}, 100vw - 10px) / max(var(--nbRows), var(--nbColumns)) - 10px)
+        var(--tile-size)
     );
     grid-template-columns: repeat(
         var(--nbColumns),
-        calc(min(100vh - #{$headerHeight} - #{$footerHeight}, 100vw - 10px) / max(var(--nbRows), var(--nbColumns)) - 10px)
+        var(--tile-size)
     );
     gap: $mapGap;
     background-color: #e3bb70;

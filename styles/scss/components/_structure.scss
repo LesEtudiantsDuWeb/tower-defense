@@ -39,7 +39,7 @@ header {
     @include center(center);
     flex-direction: column;
     background-size: cover;
-    margin-top: 50px;
+    margin-top: $headerHeight;
 
     .section {
         display: none;

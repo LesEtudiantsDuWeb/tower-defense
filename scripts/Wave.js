@@ -1,5 +1,6 @@
 import Monster from './Monster.js';
 import utils from './utils.js';
+import C from './constants.js';
 
 /**
  * La classe Wave gère l'ensemble de la vague.
@@ -72,7 +73,14 @@ export default class Wave {
          */
         this.arrMonstersInMap = [];
 
-        this.delaiBeforeNextWave = 5000;
+        this.delaiBeforeNextWave = C.WAVE_DELAI * 1000;
+
+        /**
+         * Enregistre le setTimeout de la vague suivante. Cela permet d'éviter
+         * de lancer plusieurs setTimeout entre la fin d'une vague et le début
+         * de la suivante.
+         */
+        this.timeout = 0;
     }
 
     /**
@@ -121,6 +129,7 @@ export default class Wave {
      * Démarre la vague
      */
     popMonster() {
+        // S'il reste des monstres de la vague à lancer sur la carte
         if (this.arrPopMonsters.length) {
             // Récupère le premier monstre du tableau d'apparition
             const monster = this.arrPopMonsters.pop();
@@ -138,16 +147,16 @@ export default class Wave {
             monster.initialPosition();
 
             this.arrMonstersInMap.push(monster);
-        } else {
+        } else if (!this.timeout) {
             // Wave terminée !
-            setTimeout(() => {
+            this.timeout = setTimeout(() => {
                 this.map.nextWave();
             }, this.delaiBeforeNextWave);
         }
     }
 
     updateStates(timestamp) {
-        if (timestamp % 10 === 0) {
+        if (timestamp % (C.MONSTER_DELAI * 60) === 0) {
             this.popMonster();
         }
         this.arrMonstersInMap.forEach((monster) => monster.updateStates(timestamp));

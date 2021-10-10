@@ -55,7 +55,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 50px;
+  height: 0px;
   padding: 0 2rem;
   position: fixed;
   width: 100vw;
@@ -65,13 +65,13 @@ header .title {
 }
 header .primary {
   display: flex;
-  height: 50px;
+  height: 0px;
 }
 header .primary .link {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  height: 50px;
+  height: 0px;
   padding: 0 2rem;
 }
 header .primary .link:hover {
@@ -80,7 +80,7 @@ header .primary .link:hover {
 
 .container {
   width: 100%;
-  min-height: calc(100vh - 50px - 80px);
+  min-height: calc(100vh - 0px - 80px);
   flex: 100;
   background: transparent;
   display: flex;
@@ -88,7 +88,7 @@ header .primary .link:hover {
   justify-content: center;
   flex-direction: column;
   background-size: cover;
-  margin-top: 50px;
+  margin-top: 0px;
 }
 .container .section {
   display: none;
@@ -130,13 +130,14 @@ header .primary .link:hover {
 :root {
   --nbRows: 5;
   --nbColumns: 5;
+  --tile-size: 30px;
 }
 
 .map {
   display: grid;
   grid-auto-flow: row dense;
-  grid-template-rows: repeat(var(--nbRows), calc(min(100vh - 50px - 80px, 100vw - 10px) / max(var(--nbRows), var(--nbColumns)) - 10px));
-  grid-template-columns: repeat(var(--nbColumns), calc(min(100vh - 50px - 80px, 100vw - 10px) / max(var(--nbRows), var(--nbColumns)) - 10px));
+  grid-template-rows: repeat(var(--nbRows), var(--tile-size));
+  grid-template-columns: repeat(var(--nbColumns), var(--tile-size));
   gap: 10px;
   background-color: #e3bb70;
   position: relative;

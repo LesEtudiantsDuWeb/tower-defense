@@ -1,6 +1,7 @@
 import utils from './utils.js';
 import Tile from './Tile.js';
 import Wave from './Wave.js';
+import C from './constants.js';
 
 /**
  * La classe Map gère tout ce qui est en rapport avec la map.
@@ -63,7 +64,7 @@ export default class Map {
         this.jsonMonsters = jsonMonsters;
 
         /**
-         * Vague courante
+         * Vague courante, démarre à -1
          * @type number
          */
         this.currentWaveIndex = -1;
@@ -78,7 +79,7 @@ export default class Map {
          *
          * A chaque nouvelle vague, celle-ci est ajouté dans ce tableau. Dès le dernière monstre de la
          * vague sortie de la map, la vague est supprimée du tableau.
-         * 
+         *
          * NOTE A améliorer plus tard, car si le tableau waves vaut [0, 1, 0],
          *      on chargera 2 fois les données de la wave 0 plutot que de réutiliser celles déjà récupérées.
          * Tableau waves[idMap] = Wave
@@ -88,7 +89,7 @@ export default class Map {
         this.currentWaves = [];
 
         /**
-         * Contient l'état du jeu, 
+         * Contient l'état du jeu,
          * @type boolean
          */
         this.finished = false;
@@ -100,9 +101,17 @@ export default class Map {
     generateWave() {
         console.log('Génération de la vague', this.currentWaveIndex);
         // NOTE modifier map par routes ?
-        return new Wave({ ...this.waves[this.currentWaveIndex], jsonMonsters: this.jsonMonsters, map: this, waveNumber: this.currentWaveIndex });
+        return new Wave({
+            ...this.waves[this.currentWaveIndex],
+            jsonMonsters: this.jsonMonsters,
+            map: this,
+            waveNumber: this.currentWaveIndex,
+        });
     }
 
+    /**
+     * Passe à la vague suivante
+     */
     nextWave() {
         if (this.finished) return;
 
@@ -122,6 +131,7 @@ export default class Map {
         // Modifie les variables CSS pour adapter le grid en fonction du nombre de cases en X et Y
         this.element.style.setProperty('--nbColumns', this.nbTiles.x);
         this.element.style.setProperty('--nbRows', this.nbTiles.y);
+        this.element.style.setProperty('--tile-size', C.TILE_DEFAULT_SIZE);
 
         // Ajoute les cases dans la map
         utils.appendChilds(
@@ -150,6 +160,10 @@ export default class Map {
         this.waveIteration((wave) => wave.updateStates(timestamp));
     }
 
+    /**
+     * Boucle le tableau des vagues de monstres actuellement sur la carte
+     * @param {void} fn 
+     */
     waveIteration(fn) {
         this.currentWaves.forEach(fn);
     }
