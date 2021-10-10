@@ -63,7 +63,7 @@
             "gold": 2,
             "damages": 1,
             "flying": false,
-            "type":0
+            "type": 0
         },
         {
             "id": 1,
@@ -73,7 +73,7 @@
             "gold": 5,
             "damages": 2,
             "flying": false,
-            "type":0
+            "type": 0
         }
     ],
     "waves": [
@@ -85,13 +85,19 @@
         },
         {
             "id": 1,
-            "monsters": [{ "idMonster": 0, "quantity": 2 },{ "idMonster": 1, "quantity": 4 }],
+            "monsters": [
+                { "idMonster": 0, "quantity": 2 },
+                { "idMonster": 1, "quantity": 4 }
+            ],
             "difficulty": 1,
             "gold": 5
         },
         {
             "id": 2,
-            "monsters": [{ "idMonster": 1, "quantity": 3 },{ "idMonster": 0, "quantity": 6 }],
+            "monsters": [
+                { "idMonster": 1, "quantity": 3 },
+                { "idMonster": 0, "quantity": 6 }
+            ],
             "difficulty": 1,
             "gold": 5
         }

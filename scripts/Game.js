@@ -20,7 +20,9 @@ export default class Game {
             // TODO Remove later
             this.isPlaying = true;
 
+            /** Timer de la partie. Un timestamp de 1 correspond à 1 seconde. */
             this.timestamp = 0;
+            /** Id de l'animation pour être capable de la supprimer par la suite */
             this.animFrameId = 0;
 
             return this;
@@ -43,6 +45,7 @@ export default class Game {
             waves: utils.getContentByIds(this.datas.map[mapId].waves, this.datas.waves),
             jsonMonsters: this.datas.monsters,
             jsonMapRoutes: this.datas.map[mapId].routes,
+            game: this,
         });
 
         this.currentMap.generateDom();
@@ -72,13 +75,16 @@ export default class Game {
         this.updateStates();
 
         if (this.timestamp === 50) {
-            console.log('hannnnnnn');
+            console.log('Pause activée');
             this.stop();
             // console.log(this.currentMap.currentWave.arrMonstersInMap);
             // console.log(this.currentMap.waveIteration2(wave => wave.arrMonstersInMap));
-            setTimeout(() => this.update(), 3000);
+            setTimeout(() => {
+                console.log('Lecture activée');
+                this.update();
+            }, 3000);
         }
 
-        if (this.timestamp === 500) this.stop();
+        // if (this.timestamp === 430) this.stop();
     }
 }

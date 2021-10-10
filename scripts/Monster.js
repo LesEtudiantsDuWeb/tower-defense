@@ -97,17 +97,21 @@ export default class Monster {
 
     setPosition() {
         const rect = this.element.getBoundingClientRect();
-        this.element.style.setProperty('top', (rect.y + 10) + 'px');
+        this.element.style.setProperty('top', rect.y + 5 + 'px');
         if (rect.y > 666) {
-            this.element.remove();
             // Remove monster du tableau
             // TODO Fix (Si le monstre est dans une autre vague, ca fou le bordel !!!)
-            this.wave.arrMonstersInMap = this.wave.arrMonstersInMap.filter(monster => monster !== this);
-            console.log(this.wave.arrMonstersInMap);
+            this.wave.arrMonstersInMap = this.wave.arrMonstersInMap.filter(
+                (monster) => monster.element !== this.element,
+            );
+            this.element.remove();
             if (!this.wave.arrMonstersInMap.length) {
                 // Retire vague du tableau
-                this.wave.map.currentWaves = this.wave.map.currentWaves.filter(wave => wave !== this.wave);
-                console.log("Vague",this.id,"terminée !");
+                this.wave.map.currentWaves = this.wave.map.currentWaves.filter((wave) => wave !== this.wave);
+                console.log('Vague', this.wave.waveNumber, 'terminée !');
+                if (this.wave.map.finished) {
+                    this.wave.map.game.stop();
+                }
                 // this.wave.map.nextWave();
             }
         }

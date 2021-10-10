@@ -16,10 +16,14 @@ export default class Wave {
      * @param {number} param.gold
      * @param {number} param.difficulty
      * @param {object[]} param.jsonMonsters
+     * @param {number} param.waveNumber
      */
-    constructor({ id, monsters, gold, difficulty, jsonMonsters, map }) {
+    constructor({ id, monsters, gold, difficulty, jsonMonsters, map, waveNumber }) {
         // Permet d'accéder facilement à l'instance de Map pour la route
         this.map = map;
+
+        // Numéro de la vague
+        this.waveNumber = waveNumber;
 
         /******************************
          * Id de la vague
