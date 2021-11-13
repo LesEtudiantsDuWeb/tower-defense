@@ -1,31 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Tower Défense</title>
+        <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+        <title>JS - Tower Defense</title>
         <link rel="stylesheet" href="styles/css/style.css" />
         <script src="scripts/index.js" type="module"></script>
     </head>
     <body>
-        <!-- <header class="header">
-            <h2 class="title">Tower Defense</h2>
-            <nav class="primary">
-                <a href="#" class="link">
-                    Lien A
-                </a>
-                <a href="#" class="link">
-                    Lien B
-                </a>
-                <a href="#" class="link">
-                    Lien C
-                </a>
-                <a href="#" class="link">
-                    Lien D
-                </a>
-            </nav>
-        </header> -->
+        <div class="player">
+            <div class="player__item"><img src="./images/gold.svg" alt="gold"><span id="playerGold">1000</span></div>
+            <div class="player__item"><img src="./images/life.svg" alt="life"><span id="playerLife">3</span></div>
+        </div>
+
+        <div class="wave">
+            <div class="wave__item">Vague :<span id="waveNumber">1 / 10</span></div>
+            <button id="startWave">Démarre la vague</button>
+        </div>
 
         <div class="container">
             <div id="map" class="map"></div>
@@ -34,11 +27,7 @@
 
         <footer class="footer">
             <div class="footer_content">FOOTER</div>
-            <div class="footer_copyright">Tous droits réservés &copy; Tower Defense - Les Etudiants du Web 2021</div>
+            <div class="footer_copyright">Tous droits réservés &copy; Tower Defense - Forth 2021</div>
         </footer>
-
-        <!-- Sprite svg -->
-        <svg style="height: 0; display: none">
-        </svg>
     </body>
 </html>

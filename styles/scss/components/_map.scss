@@ -16,6 +16,7 @@
         var(--tile-size)
     );
     gap: $mapGap;
+    padding: $mapGap;
     background-color: #e3bb70;
 
     position: relative;

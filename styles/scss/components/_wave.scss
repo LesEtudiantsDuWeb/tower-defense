@@ -1,0 +1,28 @@
+.wave {
+    position: fixed;
+    inset: 5px;
+    left: auto;
+    height: 60px;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    &__item {
+        @include center(flex-end);
+        font-size: 1.1rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #f2f2f2;
+
+        & > span {
+            margin-left: 5px;
+            font-weight: 400;
+        }
+    }
+    button {
+        display: none;
+        padding: 5px 10px;
+        width: 100%;
+    }
+}
