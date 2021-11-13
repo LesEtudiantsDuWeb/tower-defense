@@ -1,13 +1,80 @@
 {
     "name": "tower-defense",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "main": "index.js",
-    "repository": "",
+    "author": [
+        "Forth",
+        "Saucedechoux",
+        "Atthis"
+    ],
     "license": "MIT",
     "scripts": {
-        "start": "sass --no-source-map --watch styles/scss/index.scss:styles/css/style.css"
+        "build": "sass --no-source-map --watch styles/scss/index.scss:styles/css/style.css"
     },
     "dependencies": {
-        "sass": "1.42.1"
+        "sass": "1.43.4"
+    },
+    "prettier": {
+        "trailingComma": "all",
+        "tabWidth": 4,
+        "printWidth": 120,
+        "semi": true,
+        "quoteProps": "consistent",
+        "singleQuote": true,
+        "arrowParens": "always",
+        "bracketSpacing": true
+    },
+    "eslintConfig": {
+        "parser": "babel-eslint",
+        "env": {
+            "es6": true
+        },
+        "extends": "eslint:recommended",
+        "parserOptions": {
+            "ecmaVersion": "latest",
+            "sourceType": "module",
+            "allowImportExportEverywhere": true
+        },
+        "rules": {
+            "semi"                      : ["error", "always"],
+            "comma-dangle"              : ["error", "only-multiline"],
+            "max-len"                   : ["error", { "code": 120 }],
+            "object-curly-spacing"      : ["error", "never", { "arraysInObjects": true }],
+            "computed-property-spacing" : ["error", "never", { "enforceForClassMembers": true }],
+            "for-direction"             : "error",
+            "getter-return"             : "error",
+            "no-setter-return"          : "error",
+            "no-cond-assign"            : "error",
+            "no-console"                : ["error", { "allow": ["log", "warn", "error"] }],
+            "no-constant-condition"     : "error",
+            "no-debugger"               : "error",
+            "no-dupe-args"              : "error",
+            "no-dupe-else-if"           : "error",
+            "no-dupe-keys"              : "error",
+            "no-duplicate-case"         : "error",
+            "no-case-declarations"      : "error",
+            "no-empty-pattern"          : "error",
+            "no-fallthrough"            : ["error", { "commentPattern": "break[\\s\\w]*omitted" }],
+            "no-global-assign"          : "error",
+            "no-octal"                  : "error",
+            "no-redeclare"              : "error",
+            "no-self-assign"            : "error",
+            "no-useless-catch"          : "error",
+            "no-with"                   : "error",
+            "no-useless-escape"         : "error",
+            "no-delete-var"             : "error",
+            "no-shadow-restricted-names": "error",
+            "no-undef"                  : "error",
+            "no-unused-vars"            : ["error", { "vars": "local", "args": "after-used" }],
+            "no-unreachable"            : "error",
+            "no-unreachable-loop"       : "error",
+            "keyword-spacing"           : "error",
+            "use-isnan"                 : "error",
+            "no-unsafe-finally"         : "error",
+            "valid-typeof"              : ["error", { "requireStringLiterals": true }],
+            "no-unsafe-negation"        : ["error", { "enforceForOrderingRelations": true }],
+            "no-eq-null"                : "error",
+            "sort-keys"                 : "error"
+        }
     }
 }

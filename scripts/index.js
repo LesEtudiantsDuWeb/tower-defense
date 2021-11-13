@@ -1,16 +1,23 @@
-import Game from './Game.js';
+import { GameInitialized } from './classes/Game.js';
 
-// Le fichier json est en async, ce qui fait que pour constructruire l'objet, nous avons une promesse.
-// 2 méthodes possibles : async/await ou then()
+const btn_startWave = document.querySelector('#startWave');
 
-// const myGame = await new Game();
-// myGame.loadMap(1);
+// GameInitialized représente le jeu avec le json contenant toutes les données chargées
+GameInitialized.then((myGame) => {
+    const mapNum = 0;
+    // Charge la map
+    myGame.loadMap(mapNum);
 
-new Game().then(myGame => {
-    myGame.loadMap(0);
+    // Le jeu est chargé, on peut donc afficher le bouton et ajouter l'event
+    btn_startWave.style.setProperty('display', 'block');
+    btn_startWave.addEventListener('click', () => handleGame(myGame));
+});
 
-    // Lance la map et donc la première vague
-    myGame.play();
-
-    // Suite du code
-})
+/**
+ * Event du bouton de l'état du jeu
+ * @param {Game} theGame
+ */
+function handleGame(theGame) {
+    theGame.setPlaying();
+    btn_startWave.textContent = theGame.isPlaying ? 'Pause' : 'Lecture';
+}

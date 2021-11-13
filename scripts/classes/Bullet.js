@@ -1,7 +1,6 @@
 import { trajCalculation } from './utils.js';
 
 /**
- *
  * La classe Bullet gère la création et la destruction des projectiles générés par les tourelles
  *
  * + moveBullet() : déplacement du projectile selon les coordonnées de la cible
@@ -19,7 +18,7 @@ export default class Bullet {
      * @param {number} damages
      */
     constructor(originX, originY, targetX, targetY, speed, damages) {
-    // constructor(originX, originY, target, speed, damages) {
+        // constructor(originX, originY, target, speed, damages) {
         /**
          * origine X du projectile
          * @type {number}
@@ -62,7 +61,8 @@ export default class Bullet {
     }
 
     /**
-     * Génère une div avec la classe bullet, positionnée selon les coordonnées définies dans les paramètres (position de la tourelle tirant le projectile)
+     * Génère une div avec la classe bullet, positionnée selon les coordonnées définies
+     * dans les paramètres (position de la tourelle tirant le projectile)
      *
      * @returns {HTMLDivElement}
      */
@@ -80,7 +80,8 @@ export default class Bullet {
     }
 
     /**
-     * Gestion du déplacement du projectile, selon la position et la distance le séparant de sa cible
+     * Gestion du déplacement du projectile, selon la position et la distance le séparant
+     * de sa cible
      */
     moveBullet() {
         const delta = trajCalculation(this.x, this.y, this.tx, this.ty);

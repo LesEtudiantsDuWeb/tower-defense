@@ -13,7 +13,6 @@ import Bullet from './Bullet.js';
 
 export default class Turret {
     /**
-     *
      * @param {number} x en pixel
      * @param {number} y en pixel
      * @param {number} range en pixel
