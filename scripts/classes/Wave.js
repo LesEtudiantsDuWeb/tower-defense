@@ -1,4 +1,4 @@
-import C from '../constants.js';
+import C, { LogStyles } from '../constants.js';
 import utils from '../utils.js';
 import Map from './Map.js';
 import Monster from './Monster.js';
@@ -81,7 +81,7 @@ export default class Wave {
         }
 
         this._monstersToPop = this.generateMonstersToPop();
-        C.LOG_WAVE && console.log(this._monstersToPop);
+        C.LOG_WAVE && this._monstersToPop.forEach(console.log);
 
         this._monstersInMap = [];
         this._finished = false;
@@ -165,7 +165,7 @@ export default class Wave {
         const monster = this._monstersToPop.pop();
         // S'il reste des monstres de la vague à lancer sur la carte
         if (monster) {
-            C.LOG_WAVE && console.log('Vague', this._waveNumber, 'Apparition du monstre');
+            C.LOG_WAVE && console.log(`%cVague ${this.waveNumber} Apparition du monstre`, LogStyles.alert);
 
             monster.initialPosition();
 

@@ -153,7 +153,7 @@ export default class Monster {
         this._element.style.setProperty('top', rect.y + 5 + 'px');
 
         if (this.isTargetReached(rect)) {
-            C.LOG_WAVE && console.log('Vague', this._wave.waveNumber, 'Disparition du monstre');
+            C.LOG_WAVE && console.log(`%cVague ${this._wave.waveNumber} Disparition du monstre`, LogStyles.success);
 
             this._wave.removeMonsterOfMap(this._element);
         }

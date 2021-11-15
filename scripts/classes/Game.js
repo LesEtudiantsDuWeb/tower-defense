@@ -56,7 +56,7 @@ export default class Game {
         this._isPlaying = false;
         this._timestamp = 0;
         this._animFrameId = 0;
-        this._interface = new Interface();
+        this._interface = new Interface(this);
         this._timestampNextWave = 0;
         this._delaiBetweenWaves = C.WAVE_DELAI * 60;
 
@@ -126,7 +126,6 @@ export default class Game {
      * @param {boolean} newState
      */
     setPlaying(newState = !this._isPlaying) {
-        console.log('change state');
         this._isPlaying = newState;
         this._isPlaying ? this.play() : this.stop();
     }

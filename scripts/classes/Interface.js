@@ -1,6 +1,12 @@
 import { $ } from '../utils.js';
+import Game from './Game.js';
 
 export default class Interface {
+    /**
+     * Instance de Game
+     * @type {Game}
+     */
+    _game;
     /**
      * Element affichant le montant d'or
      * @type {HTMLElement}
@@ -16,6 +22,11 @@ export default class Interface {
      * @type {HTMLElement}
      */
     _waveNumberElement;
+    /**
+     * Element pour modifier l'état du jeu
+     * @type {HTMLButtonElement}
+     */
+     _btnStartWaveElement;
     /**
      * Montant d'or
      * @type {number}
@@ -33,7 +44,7 @@ export default class Interface {
     _waveNumber;
     /**
      * Nombre maximum de vagues de la carte en cours
-     * @typstringe {}
+     * @type {string}
      */
     _waveMax;
 
@@ -42,15 +53,18 @@ export default class Interface {
      * @param {TJsonPlayer|undefined} player
      * @param {number|undefined} waveMax
      */
-    constructor(player, waveMax) {
+    constructor(game, player, waveMax) {
+        this._game = game;
         this._playerGoldElement = $('#playerGold');
         this._playerLifeElement = $('#playerLife');
         this._waveNumberElement = $('#waveNumber');
+        this._btnStartWaveElement = $('#startWave');
         this._playerGold = player?.startGold ?? 0;
         this._playerLife = player?.startLife ?? 0;
         this._waveNumber = 0;
         this._waveMax = waveMax?.toString() ?? 'XX';
 
+        this.handleGame = this.handleGame.bind(this);
         this.setDisplay();
     }
 
@@ -88,6 +102,9 @@ export default class Interface {
         this._playerGoldElement.innerText = this._playerGold.toString();
         this._playerLifeElement.innerText = this._playerLife.toString();
         this._waveNumberElement.innerText = this.wave;
+        // Le jeu est chargé, on peut donc afficher le bouton et ajouter l'event
+        this._btnStartWaveElement.style.setProperty('display', 'block');
+        this._btnStartWaveElement.addEventListener('click', this.handleGame);
     }
 
     /**
@@ -95,7 +112,6 @@ export default class Interface {
      * @param {number} gold
      */
     setGold(gold) {
-        console.log('setGold', this._playerGold, gold);
         this.anim(this._playerGoldElement, this._playerGold, this._playerGold + gold);
         this._playerGold += gold;
     }
@@ -105,7 +121,6 @@ export default class Interface {
      * @param {number} life
      */
     setLife(life) {
-        console.log('setLife', this._playerLife, life);
         this._playerLife += life;
         this._playerLifeElement.innerText = this._playerLife.toString();
     }
@@ -114,10 +129,9 @@ export default class Interface {
      * Met à jour le numéro de la vague en cours
      * @param {number} wave
      */
-    setWave(wave) {
-        console.log('setWave', this._waveNumber, wave);
-        this._waveNumber += wave;
-        this._waveNumberElement.innerText = this._waveNumber.toString();
+    setWave() {
+        this._waveNumber++;
+        this._waveNumberElement.innerText = this.wave;
     }
 
     /**
@@ -136,5 +150,12 @@ export default class Interface {
                 element.innerText = current.toString();
             }, (timer += delai));
         }
+    }
+    
+    /** Event du bouton de l'état du jeu */
+    handleGame() {
+        console.log(this)
+        this._game.setPlaying();
+        this._btnStartWaveElement.textContent = this._game.isPlaying ? 'Pause' : 'Lecture';
     }
 }

@@ -11,9 +11,11 @@ export default Object.freeze({
     /** Affiche ou non les logs liés à la vague */
     LOG_WAVE: true,
     /** Affiche ou non l'index de la case */
-    TEXTCONTENT_TILE: false,
+    TEXTCONTENT_TILE: true,
 });
 
 export const LogStyles = Object.freeze({
-    error: 'color:red;',
+    danger: 'color:red;',
+    alert: 'color:orange;',
+    success: 'color:green;',
 });

@@ -174,6 +174,7 @@ export default class Map {
     nextWave() {
         this._currentWaveIndex++;
         this._currentWaves.push(this.createWave());
+        this._game.interface.setWave();
     }
 
     /**
